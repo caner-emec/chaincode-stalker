@@ -1,0 +1,8 @@
+identity:
+  cert: "filename .pem"
+  privateKey: "priv_sk"
+  mspId: "Org1MSP"
+
+connection:
+  tls: true
+  tlsCert: "ca.crt"

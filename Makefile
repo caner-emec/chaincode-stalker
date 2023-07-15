@@ -8,4 +8,18 @@ install:
 
 .PHONY: lint
 lint:
-	golangci-lint run
+	golangci-lint run .
+
+.PHONY: run
+run:
+	go run main.go
+
+.PHONY: build
+build:
+	go mod tidy
+	go mod vendor
+	go build -v -o build/chaincode-stalker
+
+.PHONY: clean
+clean:
+	go clean -v
