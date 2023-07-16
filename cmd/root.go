@@ -20,6 +20,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/caner-emec/chaincode-stalker/cmd/metadata"
+	c "github.com/caner-emec/chaincode-stalker/configs"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -59,6 +62,8 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	rootCmd.AddCommand(metadata.MetadataCmd)
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -81,13 +86,13 @@ func initConfig() {
 
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err != nil {
-		os.Exit(1)
+		panic(err)
 	}
 
 	fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
 
-	err := viper.Unmarshal(&config)
+	err := viper.Unmarshal(&c.Conf)
 	if err != nil {
-		os.Exit(1)
+		panic(err)
 	}
 }

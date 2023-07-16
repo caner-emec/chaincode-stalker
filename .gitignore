@@ -131,3 +131,6 @@ dist
 
 vendor/
 build/
+*.pem
+*.crt
+*_sk

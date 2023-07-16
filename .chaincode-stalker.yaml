@@ -1,8 +1,10 @@
 identity:
-  cert: "filename .pem"
-  privateKey: "priv_sk"
+  cert: "./credentials/cert.pem"
+  privateKey: "./credentials/priv_sk"
   mspId: "Org1MSP"
 
 connection:
   tls: true
-  tlsCert: "ca.crt"
+  tlsCert: "./credentials/ca.crt"
+  peerEndpoint: "localhost:7051"
+  gatewayPeer: "peer0.org1.example.com"

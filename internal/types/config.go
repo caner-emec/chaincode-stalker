@@ -1,4 +1,4 @@
-package cmd
+package types
 
 type IdentityConfig struct {
 	Cert       string `mapstructure:"cert"`
@@ -7,13 +7,13 @@ type IdentityConfig struct {
 }
 
 type ConnectionConfig struct {
-	TLSCert string `mapstructure:"tlsCert"`
-	TLS     bool   `mapstructure:"tls"`
+	TLSCert      string `mapstructure:"tlsCert"`
+	PeerEndpoint string `mapstructure:"peerEndpoint"`
+	GatewayPeer  string `mapstructure:"gatewayPeer"`
+	TLS          bool   `mapstructure:"tls"`
 }
 
 type Config struct {
 	Identity   IdentityConfig   `mapstructure:"identity"`
 	Connection ConnectionConfig `mapstructure:"connection"`
 }
-
-var config Config

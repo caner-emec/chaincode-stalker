@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "pre-commit": "npx pre-commit --version"
+    "pre-commit": "npx pre-commit"
   },
   "devDependencies": {
     "cowsay": "^1.5.0",
